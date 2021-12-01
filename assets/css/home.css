@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,100&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0C0E12;
+    color: #fff;
+}
+
+.authentication-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 800px;
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+
+}
+
+.login-class{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-input {
+    padding: 7px;
+    margin: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #fff;
+    color: black;
+    margin-bottom: 0;
+    border: none;
+    padding-left: 10px;
+    border-radius: 3px;
+}
+
+.user-input:focus {
+    border-radius: 10px;
+}
+
+#password{
+    margin-top: 10px;
+}
+
+.user-input:focus,
+#submit-button:focus {
+    outline: none;
+}
+
+.user-input:focus::placeholder {
+    color: transparent;
+}
+
+::placeholder {
+    color: #000;
+    font-weight: bold;
+    font-size: 0.87em;
+    opacity: 0.9;
+}
+
+.bottom-container {
+    align-items: center;
+    height: 50px;
+    margin-top: 15px;
+    padding: 20px;
+    padding-top: 0;
+    font-weight: bold;
+}
+
+#register {
+    float: right;
+    text-decoration: none;
+    color: #fff;
+}
+
+#submit-button {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 1.1em;
+    padding: 7px;
+    background-color: #1E2329;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+#submit-button:hover{
+    cursor: pointer;
+}
+
+.price-container {
+    background-color: #1E2329;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btc-container {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+#btc-name {
+    font-size: 0.7em;
+}
+
+#eth-name {
+    font-size: 0.7em;
+}
+
+#tick {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 1px;
+    margin-right: 2px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+
+#tick:checked {
+    background-color: #2ecc71;
+}
+
+
+
+
+
+
+
+
