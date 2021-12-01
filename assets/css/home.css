@@ -49,7 +49,8 @@ body{
 }
 
 .user-input:focus {
-    border-radius: 10px;
+    transition: border-radius 0.5s;
+    border-radius: 6px;
 }
 
 #password{
