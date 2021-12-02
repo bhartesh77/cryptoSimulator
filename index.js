@@ -18,11 +18,14 @@ router.get('/', function(req, res) {
     res.render('home');
 })
 
+router.get('/register', function(req, res) {
+    res.render('register');
+})
+
 router.listen(port, function(err) {
 
     if(err) {
         return;
     }
-
     console.log('server is up and running on port', port);
 })

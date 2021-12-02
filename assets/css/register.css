@@ -21,7 +21,7 @@ body{
     color: #F0B90B;
 }
 
-.authentication-container {
+.registration-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +34,7 @@ body{
 
 }
 
-.login-class{
+.register-class{
     display: flex;
     flex-direction: column;
 }
@@ -58,6 +58,10 @@ body{
 }
 
 #password{
+    margin-top: 10px;
+}
+
+#username {
     margin-top: 10px;
 }
 
@@ -86,7 +90,7 @@ body{
     font-weight: bold;
 }
 
-#register {
+#login {
     float: right;
     text-decoration: none;
     color: #FAD338;
@@ -127,29 +131,6 @@ body{
 #eth-name {
     font-size: 0.7em;
 }
-
-#tick {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 12px;
-    height: 12px;
-    background-color: #fff;
-    border-radius: 1px;
-    margin-right: 2px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-
-#tick:checked {
-    background-color: #2ecc71;
-}
-
-
-
-
-
 
 
 
