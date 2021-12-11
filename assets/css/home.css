@@ -86,6 +86,10 @@ body{
     font-weight: bold;
 }
 
+#remember-me:hover {
+    cursor: pointer;
+}
+
 #register {
     float: right;
     text-decoration: none;
