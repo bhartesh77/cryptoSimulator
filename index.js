@@ -22,6 +22,10 @@ router.get('/register', function(req, res) {
     res.render('register');
 })
 
+router.get('/user', function(req,res) {
+    res.render('user');
+})
+
 router.listen(port, function(err) {
 
     if(err) {

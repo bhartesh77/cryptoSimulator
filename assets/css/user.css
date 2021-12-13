@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,100&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+    height: 100vh;
+    background-color: #0C0E12;
+    font-family: L;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    padding: 40px;
+    margin: 20px;
+}
+
+.crypto-name {
+    font-size: 0.7em;
+}
+
+.container {
+    color: white;
+    background-color: #1E2329;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+
+.bottom-container {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.element {
+    width: 45%;
+    height: 45%;
+    margin: 5px;
+}
+
+.left-container {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name-tag {
+    padding-top: 2px;
+    font-size: 0.9em;
+    margin-bottom: 0;
+}
+
+.right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    padding: 5px;
+    padding-bottom: 0;
+}
+
+.value {
+    font-size: 1.5em;
+}
