@@ -21,9 +21,24 @@
       </nav> -->
 
     <div class="main-container">
-        <p id="heading">Open Positions<p>
 
+        <div class="wallet-container">
+            <div>
+                <span id="wallet">Wallet balance</span>
+                <span id="wallet-balance"><%= walletbalance %> USDT</span>
+            </div>
+            
+            <form action="/add-money" class="add-money" method="POST"> 
+                <input type="number" name="money" class="input-money" placeholder="Enter Amount">
+                <button type="submit" class="add-money-button">ADD</button>
+            </form>
+        </div>
+
+        <p id="heading">Open Positions<p>
+        
         <div class="main-trade-container">
+
+            
             <div class="btc-container container">
                 <div class="top-container">
                     <span class="crypto-name">BTC / USDT</span>

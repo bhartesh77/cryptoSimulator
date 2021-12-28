@@ -26,10 +26,25 @@ body{
     margin: 20px;
 }
 
+.wallet-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    flex-direction: column;
+}
+
+#wallet-balance {
+    color: #FAD338;
+}
+
 #heading {
     font-size: 1.2em;
     font-weight: bold;
     color: #FAD338;
+    margin-bottom: 0;
+    margin-top: 20px;
 }
 
 .crypto-name {

@@ -11,7 +11,7 @@
     <div class="main-container">
         <div class="wallet-container">
             <span id="wallet">Wallet balance</span>
-            <span id="wallet-balance">$480</span>
+            <span id="wallet-balance"><%= walletbalance %> USDT</span>
         </div>
         <div class="trade-container">
 
@@ -20,9 +20,9 @@
                 <div class="market-price">
                     <span id="btc-price" class="price">...</span>
                 </div>
-                <form action="" class="trade-form">
-                    <input type="number" id="leverage" class="input-class" placeholder="Leverage">
-                    <input type="number" id="amount" class="input-class" placeholder="Amount">
+                <form action="buy-btc" class="trade-form" method="POST">
+                    <input type="number" name="leverage" id="leverage" class="input-class" placeholder="Leverage">
+                    <input type="number" name="amount" id="amount" class="input-class" placeholder="Amount">
                     <button type="submit" id="buy-button">Buy</button>
                 </form>
             </div>
@@ -32,9 +32,9 @@
                 <div class="market-price">
                     <span id="eth-price" class="price">...</span>
                 </div>
-                <form action="" class="trade-form">
-                    <input type="number" id="leverage" class="input-class" placeholder="Leverage">
-                    <input type="number" id="amount" class="input-class" placeholder="Amount">
+                <form action="buy-eth" class="trade-form" method="POST">
+                    <input type="number" name="leverage" id="leverage" class="input-class" placeholder="Leverage">
+                    <input type="number" name="amount" id="amount" class="input-class" placeholder="Amount">
                     <button type="submit" id="buy-button">Buy</button>
                 </form>
             </div>
