@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/trade.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="wallet-container">
+            <span id="wallet">Wallet balance</span>
+            <span id="wallet-balance">$480</span>
+        </div>
+        <div class="trade-container">
+
+            <div class="btc-container price-container">
+                <span class="name-tag">BTC / USDT</span>
+                <div class="market-price">
+                    <span id="btc-price" class="price">...</span>
+                </div>
+                <form action="" class="trade-form">
+                    <input type="number" id="leverage" class="input-class" placeholder="Leverage">
+                    <input type="number" id="amount" class="input-class" placeholder="Amount">
+                    <button type="submit" id="buy-button">Buy</button>
+                </form>
+            </div>
+                
+            <div class="eth-container price-container">
+                <span class="name-tag">ETH / USDT</span>
+                <div class="market-price">
+                    <span id="eth-price" class="price">...</span>
+                </div>
+                <form action="" class="trade-form">
+                    <input type="number" id="leverage" class="input-class" placeholder="Leverage">
+                    <input type="number" id="amount" class="input-class" placeholder="Amount">
+                    <button type="submit" id="buy-button">Buy</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/trade.js"></script>
+</body>
+</html>
