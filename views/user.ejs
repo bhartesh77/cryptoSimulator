@@ -19,7 +19,9 @@
           </div>
         </div>
       </nav> -->
-
+        <div class="trading-button">
+            <a href="/trade" class="trading-button-link">Trade</a>
+        </div>
     <div class="main-container">
 
         <div class="wallet-container">
@@ -43,7 +45,7 @@
                     <% if(i.name == 'btc') { %>
                         <div class="btc-container container">
                             <div class="top-container">
-                                <span class="crypto-name">BTC / USDT</span>
+                                <span class="crypto-name name-tag">BTC / USDT</span>
                                 <span class="leverage"><%= i.leverage %>x</span>
                             </div>
                             
@@ -51,11 +53,11 @@
                                 <div class="left-container">
                                     <div class="element">
                                         <p class="name-tag">Market Price</p>
-                                        <p>72458</p>
+                                        <p><%= i.marketPrice %></p>
                                     </div>
                                     <div class="element">
                                         <p class="name-tag">Entry Price</p>
-                                        <p>72458</p>
+                                        <p><%= i.entryPrice %></p>
                                     </div>
                                     <div class="element">
                                         <p class="name-tag">Margin</p>
@@ -63,17 +65,76 @@
                                     </div>
                                     <div class="element">
                                         <p class="name-tag">liq. Price</p>
-                                        <p>72458</p>
+                                        <p><%= i.liquidationPrice %></p>
                                     </div>
-                                   
+                                    <div class="element">
+                                        <p class="name-tag">ROE</p>
+                                        <p class="value"><%= i.roe %></p>
+                                    </div>
+                                    <div class="element">
+                                        <p class="name-tag">PNL</p>
+                                        <p class="value"><%= i.pnl %></p>
+                                    </div>
+                                    
+                                    
                                 </div>
                                 
-                                <div class="right-container">
+                                <!-- <div class="right-container">
                                     <p class="name-tag">ROE</p>
-                                    <p class="value">72458</p>
+                                    <p class="value"><%= i.roe %></p>
                                     <p class="name-tag">PNL</p>
-                                    <p class="value">72458</p>
+                                    <p class="value"><%= i.pnl %></p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <a class="sell-button-atag" href="">
+                            <div class="sell-button">SELL</div>
+                        </a>
+                    <% } %>
+
+                    <% if(i.name == 'eth') { %>
+                        <div class="eth-container container">
+                            <div class="top-container">
+                                <span class="crypto-name name-tag">ETH / USDT</span>
+                                <span class="leverage"><%= i.leverage %>x</span>
+                            </div>
+                            
+                            <div class="bottom-container">
+                                <div class="left-container">
+                                    <div class="element">
+                                        <p class="name-tag">Market Price</p>
+                                        <p><%= i.marketPrice %></p>
+                                    </div>
+                                    <div class="element">
+                                        <p class="name-tag">Entry Price</p>
+                                        <p><%= i.entryPrice %></p>
+                                    </div>
+                                    <div class="element">
+                                        <p class="name-tag">Margin</p>
+                                        <p><%= i.margin %></p>
+                                    </div>
+                                    <div class="element">
+                                        <p class="name-tag">liq. Price</p>
+                                        <p><%= i.liquidationPrice %></p>
+                                    </div>
+                                    <div class="element">
+                                        <p class="name-tag">ROE</p>
+                                        <p class="value"><%= i.roe %></p>
+                                    </div>
+                                    <div class="element">
+                                        <p class="name-tag">PNL</p>
+                                        <p class="value"><%= i.pnl %></p>
+                                    </div>
+                                    
+                                    
                                 </div>
+                                
+                                <!-- <div class="right-container">
+                                    <p class="name-tag">ROE</p>
+                                    <p class="value"><%= i.roe %></p>
+                                    <p class="name-tag">PNL</p>
+                                    <p class="value"><%= i.pnl %></p>
+                                </div> -->
                             </div>
                         </div>
                         <a class="sell-button-atag" href="">
@@ -88,11 +149,12 @@
         
     
   
-        <div class="eth-container container">
+        <!-- <div class="eth-container container">
             <span class="crypto-name">ETH / USDT</span>
             <span class="leverage">6x</span>
-        </div>  
+        </div>   -->
         
       </div>
+      <script src="js/user.js"></script>
 </body>
 </html>

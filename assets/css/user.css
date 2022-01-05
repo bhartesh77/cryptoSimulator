@@ -9,14 +9,30 @@
 }
 
 body{
-    height: 100vh;
     background-color: #0C0E12;
+}
+
+.trading-button-link {
+    text-decoration: none;
+    color: #fff;
+}
+
+.trading-button {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0;
+    width: 10vh;
+    height: 10vh;
+    background-color: #FAD338;
+    color: #fff;
+    text-decoration: none;
+    transform: rotate(-45deg) translate(-15px,-13px);
+    border-radius: 5px;
 }
 
 .main-container {
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,6 +53,34 @@ body{
 
 #wallet-balance {
     color: #FAD338;
+}
+
+input:focus{
+    outline: none;
+}
+
+.input-money:focus::placeholder {
+    color: transparent;
+    border: 0;
+}
+
+.input-money {
+    padding-left: 10px;
+    border-radius: 5px;
+    margin-right: 0;
+}
+
+.add-money-button {
+    margin-left: 0;
+    padding: 0 2px 0 2px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 #heading {
@@ -86,29 +130,20 @@ ul {
 }
 
 .left-container {
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+}
+
+.element {
+    width: 30%;
 }
 
 .name-tag {
     padding-top: 2px;
     font-size: 0.9em;
     margin-bottom: 0;
-}
-
-.right-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 40%;
-    padding: 5px;
-    padding-bottom: 0;
-}
-
-.value {
-    font-size: 1.5em;
+    color: #FAD338;
 }
 
 .sell-button {
