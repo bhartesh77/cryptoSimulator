@@ -10,33 +10,37 @@
     <link rel="stylesheet" href="css/user.css">
 </head>
 <body>
-    
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">cryptoSimulator</a>
-          
-            <h3>Hey User</h3>
-          </div>
-        </div>
-      </nav> -->
-        <div class="trading-button">
-            <a href="/trade" class="trading-button-link">Trade</a>
-        </div>
-    <div class="main-container">
 
-        <div class="wallet-container">
-            <div>
-                <span id="wallet">Wallet balance</span>
-                <span id="wallet-balance"><%= walletbalance %> USDT</span>
-            </div>
+    <nav>
+        <div class="logo">
+            <p>cryptoFlip</p>
+        </div>
+        
+        <a href="/trade" class="trading-link">
+            <div class="trading-button">Open Trades</div>
+        </a>
+        
+        <div class="wallet-balance">
+            <span id="wallet">Wallet balance</span>
+            <span id="wallet-balance"><%= walletbalance %> <span class="usdt-tag">USDT</span></span>
+        </div>
             
-            <form action="/add-money" class="add-money" method="POST"> 
-                <input type="number" name="money" class="input-money" placeholder="Enter Amount">
-                <button type="submit" class="add-money-button">ADD</button>
-            </form>
-        </div>
-
-        <p id="heading">Open Positions<p>
+        <form action="/add-money" class="add-money" method="POST"> 
+            <input type="number" name="money" class="input-money form-control" id="formGroupExampleInput2" placeholder="Enter Amount">
+            <button type="submit" class="add-money-button btn btn-dark">ADD USDT</button>
+        </form>
+        
+    </nav>
+        
+    <div class="main-container">
+        
+        <% if(trades.length) { %>
+            <p id="heading">Open Positions<p>
+        <% } else { %>
+            <p id="heading">No Open Positions<p>
+        <% } %>
+        
+        
         
         <div class="main-trade-container">
 
@@ -78,16 +82,9 @@
                                     
                                     
                                 </div>
-                                
-                                <!-- <div class="right-container">
-                                    <p class="name-tag">ROE</p>
-                                    <p class="value"><%= i.roe %></p>
-                                    <p class="name-tag">PNL</p>
-                                    <p class="value"><%= i.pnl %></p>
-                                </div> -->
                             </div>
                         </div>
-                        <a class="sell-button-atag" href="">
+                        <a class="sell-button-atag" href="/sell-btc">
                             <div class="sell-button">SELL</div>
                         </a>
                     <% } %>
@@ -137,7 +134,7 @@
                                 </div> -->
                             </div>
                         </div>
-                        <a class="sell-button-atag" href="">
+                        <a class="sell-button-atag" href="/sell-eth">
                             <div class="sell-button">SELL</div>
                         </a>
                     <% } %>

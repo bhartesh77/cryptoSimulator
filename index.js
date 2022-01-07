@@ -17,8 +17,8 @@ router.use(express.static('assets')); //static
 
 // data storage
 
-let walletBalance = 0, roe_btc, entryPrice_btc, margin_btc, pnl_btc, leverage_btc;
-let roe_eth, entryPrice_eth, margin_eth, pnl_eth, leverage_eth;
+let walletBalance = 0, roe_btc = -1, entryPrice_btc = -1, margin_btc = -1, pnl_btc = -1, leverage_btc = -1;
+let roe_eth = -1, entryPrice_eth = -1, margin_eth = -1, pnl_eth = -1, leverage_eth = -1;
 var trades = [];
 var btc = -1, eth = -1;
 
@@ -29,7 +29,7 @@ const btctick = async() => { // BTC
         axios.get('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd')
     ]);
     const marketPrice = results[0].data.bitcoin.usd / results[1].data.tether.usd;
-    btc = marketPrice;
+    btc = parseFloat(marketPrice);
 }
 const ethtick = async() => { // ETH
     const results = await Promise.all([
@@ -37,7 +37,7 @@ const ethtick = async() => { // ETH
         axios.get('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd')
     ]);
     const marketPrice = results[0].data.ethereum.usd / results[1].data.tether.usd;
-    eth = marketPrice;
+    eth = parseFloat(marketPrice);
 }
 
 setInterval(btctick, 5000);
@@ -47,45 +47,45 @@ const updateMarketPrice = () => {
     for(let i of trades) {
         if(i.name === 'btc') {
             var percent = ((btc-entryPrice_btc)/entryPrice_btc)*100;
-            pnl_btc = (percent/100)*margin_btc*leverage_btc; 
-            roe_btc = (pnl_btc/margin_btc)*100;
+            pnl_btc = parseFloat((percent/100)*margin_btc*leverage_btc); 
+            roe_btc = parseFloat((pnl_btc/margin_btc)*100);
 
             i.marketPrice = parseFloat(btc).toFixed(2);
             i.roe = parseFloat(roe_btc).toFixed(2);
             i.pnl = parseFloat(pnl_btc).toFixed(2);
 
-            if(btc != entryPrice_btc) console.log(btc);
+            if(btc !== entryPrice_btc) console.log(btc);
         }
         if(i.name === 'eth') {
             var percent = ((eth-entryPrice_eth)/entryPrice_eth)*100;
-            pnl_eth = (percent/100)*margin_eth*leverage_eth; 
-            roe_eth = (pnl_eth/margin_eth)*100;
+            pnl_eth = parseFloat((percent/100)*margin_eth*leverage_eth); 
+            roe_eth = parseFloat((pnl_eth/margin_eth)*100);
 
             i.marketPrice = parseFloat(eth).toFixed(2);
             i.roe = parseFloat(roe_eth).toFixed(2);
             i.pnl = parseFloat(pnl_eth).toFixed(2);
 
-            if(eth != entryPrice_eth) console.log(eth);
+            if(eth !== entryPrice_eth) console.log(eth, pnl_eth);
         }
     }
 }
 
 setInterval(updateMarketPrice,1000);
 
-// post routers
+// POST Routers
 router.post('/add-money', function(req,res) {
-    walletBalance += parseInt(req.body.money);
+    if(req.body.money > 0) walletBalance += parseFloat(req.body.money);
     return res.redirect('back');
 })
 
 // buy BTC
 router.post('/buy-btc', function(req,res) {
-    walletBalance -= parseInt(req.body.amount);
+    walletBalance -= parseFloat(req.body.amount);
 
 
-    entryPrice_btc = btc;
-    margin_btc = req.body.amount;
-    leverage_btc = req.body.leverage;
+    entryPrice_btc = parseFloat(btc);
+    margin_btc = parseFloat(req.body.amount);
+    leverage_btc = parseFloat(req.body.leverage);
 
     roe_btc = parseFloat(((btc-entryPrice_btc)/entryPrice_btc)*100).toFixed(2);
     pnl_btc = parseFloat(((roe_btc+100)/100)*margin_btc).toFixed(2);
@@ -95,10 +95,10 @@ router.post('/buy-btc', function(req,res) {
         leverage: parseInt(leverage_btc),
         entryPrice: parseFloat(btc).toFixed(2),
         marketPrice: parseFloat(btc).toFixed(2),
-        margin: parseInt(margin_btc),
+        margin: parseFloat(margin_btc),
         liquidationPrice: parseFloat(((100-100/parseInt(leverage_btc))/100)*btc).toFixed(2),
-        roe: roe_btc,
-        pnl: pnl_btc
+        roe: parseFloat(roe_btc),
+        pnl: parseFloat(pnl_btc)
     })
     
     return res.redirect('/user');
@@ -106,12 +106,12 @@ router.post('/buy-btc', function(req,res) {
 
 //buy ETH
 router.post('/buy-eth', function(req,res) {
-    walletBalance -= parseInt(req.body.amount);
+    walletBalance -= parseFloat(req.body.amount);
 
 
-    entryPrice_eth = eth;
-    margin_eth = req.body.amount;
-    leverage_eth = req.body.leverage;
+    entryPrice_eth = parseFloat(eth);
+    margin_eth = parseFloat(req.body.amount);
+    leverage_eth = parseFloat(req.body.leverage);
 
     roe_eth = parseFloat(((eth-entryPrice_eth)/entryPrice_eth)*100).toFixed(2);
     pnl_eth = parseFloat(((roe_eth+100)/100)*margin_eth).toFixed(2);
@@ -123,15 +123,15 @@ router.post('/buy-eth', function(req,res) {
         marketPrice: parseFloat(eth).toFixed(2),
         margin: parseInt(margin_eth),
         liquidationPrice: parseFloat(((100-100/parseInt(leverage_eth))/100)*eth).toFixed(2),
-        roe: roe_eth,
-        pnl: pnl_eth
+        roe: parseFloat(roe_eth),
+        pnl: parseFloat(pnl_eth)
     })
     
     return res.redirect('/user');
 })
 
 
-// get routers
+// GET Routers
 router.get('/', function(req, res) {
     res.render('home');
 })
@@ -142,16 +142,43 @@ router.get('/register', function(req, res) {
 
 router.get('/user', function(req,res) {
     res.render('user', {
-        walletbalance: walletBalance,
+        walletbalance: parseFloat(walletBalance).toFixed(2),
         trades: trades
     });
 })
 
 router.get('/trade', function(req,res) {
     res.render('trade', {
-        walletbalance: walletBalance
+        walletbalance: parseFloat(walletBalance).toFixed(2)
     });
 })
+
+//SELL Btc
+router.get('/sell-btc', (req,res) => {
+
+    for(var i=0; i<trades.length; i++) {
+        if(trades[i].name === 'btc') {
+            margin_btc += pnl_btc;
+            walletBalance += parseFloat(margin_btc);
+            trades.splice(i,1);
+        }
+    }
+    res.redirect('back');
+})
+
+//SELL Eth
+router.get('/sell-eth', (req,res) => {
+
+    for(var i=0; i<trades.length; i++) {
+        if(trades[i].name === 'eth') {
+            margin_eth += pnl_eth;
+            walletBalance += parseFloat(margin_eth);
+            trades.splice(i,1);
+        }
+    }
+    res.redirect('back');
+})
+
 
 router.listen(port, function(err) {
 

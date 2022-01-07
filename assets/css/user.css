@@ -12,27 +12,76 @@ body{
     background-color: #0C0E12;
 }
 
-.trading-button-link {
+nav{
+    display: flex;
+    background-color: #181A20;
+    align-items: center;
+}
+
+.logo {
+    color: #FAD338;
+    font-weight: bold;
+    font-size: 1.8em;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.trading-link {
     text-decoration: none;
+    color: #B9BABC;
+    font-size: 1em;
+    font-weight: bold;
+}
+.trading-button {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.trading-button:hover {
+    color: #FAD338;
+}
+
+.wallet-balance {
+    display: flex;
+    flex-direction: column;
+    color: #B9BABC;
+    margin: 0 20px 0 20px;
+    font-weight: bold;
+}
+#wallet {
+    font-size: 0.7em;
+}
+#wallet-balance {
+    color: #fff;
+    font-size: 1.3em;
+    margin-right: 0;
+}
+.usdt-tag {
+    margin-left: 0;
+    font-size: 0.6em;
     color: #fff;
 }
 
-.trading-button {
+form.add-money {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0;
-    width: 10vh;
-    height: 10vh;
-    background-color: #FAD338;
-    color: #fff;
-    text-decoration: none;
-    transform: rotate(-45deg) translate(-15px,-13px);
-    border-radius: 5px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+.input-money {
+    width: 14vw;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.add-money-button {
+    margin-left: 5px;
+    color: #FAD338;
+    font-weight: bold;
 }
 
 .main-container {
-    height: 90vh;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,47 +89,6 @@ body{
     color: #fff;
     padding: 40px;
     margin: 20px;
-}
-
-.wallet-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    flex-direction: column;
-}
-
-#wallet-balance {
-    color: #FAD338;
-}
-
-input:focus{
-    outline: none;
-}
-
-.input-money:focus::placeholder {
-    color: transparent;
-    border: 0;
-}
-
-.input-money {
-    padding-left: 10px;
-    border-radius: 5px;
-    margin-right: 0;
-}
-
-.add-money-button {
-    margin-left: 0;
-    padding: 0 2px 0 2px;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 #heading {
@@ -148,7 +156,8 @@ ul {
 
 .sell-button {
     width: 100%;
-    background-color: #e74c3c;
+    background-color: #181A20;
+    color: #e74c3c;
     height: 40px;
     display: flex;
     align-items: center;
@@ -156,6 +165,11 @@ ul {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-bottom: 20px;
+    transition-duration: 0.2s;
+}
+.sell-button:hover {
+    background-color: #e74c3c;
+    color: #181A20;
 }
 
 .sell-button-atag {
